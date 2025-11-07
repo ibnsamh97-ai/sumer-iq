@@ -790,7 +790,7 @@
           <a href='https://www.instagram.com/os_iraq2' rel='noopener' target='_blank'>Instagram</a>
         </div>
         <div class='footer-meta'>
-          <span>&copy; <data:blog.copyrightYear/> <data:blog.title/>. All rights reserved.</span>
+          <span>&#169; <data:blog.copyrightYear/> <data:blog.title/>. All rights reserved.</span>
         </div>
         <div class='footer-meta'>
           <span>Crafted for Sumer IQ - Iraqi knowledge in a modern vision.</span>
