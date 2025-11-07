@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='sumeriq-theme' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <meta content='blogger' name='generator'/>
+    <meta expr:content='data:blog.metaDescription' name='description'/>
+    <title><data:blog.pageTitle/></title>
+    <link expr:href='data:blog.homepageUrl' rel='canonical'/>
+    <link expr:href='data:blog.homepageUrl' rel='home'/>
+    <link expr:href='data:blog.homepageUrl + "feeds/posts/default"' rel='alternate' title='RSS' type='application/atom+xml'/>
+    <link expr:href='data:blog.homepageUrl + "feeds/comments/default"' rel='alternate' title='Comments RSS' type='application/atom+xml'/>
+    <meta content='#121113' name='theme-color'/>
+    <link rel='preconnect' href='https://fonts.googleapis.com'/>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='crossorigin'/>
+    <link href='https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <b:include data='blog' name='all-head-content'/>
+    <b:skin><![CDATA[
+      :root {
+        color-scheme: dark;
+        --bg-base: #0b0a0c;
+        --bg-elevated: rgba(23, 21, 26, 0.88);
+        --bg-card: rgba(25, 23, 29, 0.96);
+        --accent: #d8a94a;
+        --accent-soft: rgba(216, 169, 74, 0.28);
+        --text-primary: #f2ede2;
+        --text-secondary: #b6aa9a;
+        --border: rgba(216, 169, 74, 0.18);
+        --shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+        --radius: 14px;
+        --transition: 0.35s ease;
+        --max-width: 1220px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+        color: var(--text-primary);
+        background: var(--bg-base);
+        line-height: 1.65;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(216, 169, 74, 0.08) 0%, rgba(11, 10, 12, 0.6) 35%, rgba(216, 169, 74, 0.1) 70%, rgba(11, 10, 12, 0.9) 100%),
+          repeating-linear-gradient(115deg, rgba(216, 169, 74, 0.05) 0, rgba(216, 169, 74, 0.05) 2px, transparent 2px, transparent 16px);
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(216, 169, 74, 0.24), transparent 45%),
+                    radial-gradient(circle at bottom left, rgba(216, 169, 74, 0.18), transparent 45%);
+        pointer-events: none;
+        opacity: 0.9;
+        z-index: -1;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color var(--transition);
+      }
+
+      a:hover,
+      a:focus {
+        color: var(--accent);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        border-radius: calc(var(--radius) - 4px);
+      }
+
+      .site-wrapper {
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 24px 18px 64px;
+      }
+
+      .top-header {
+        display: grid;
+        grid-template-columns: 1fr minmax(220px, 320px);
+        gap: 32px;
+        align-items: center;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: calc(var(--radius) + 4px);
+        padding: 32px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .top-header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(140deg, rgba(216, 169, 74, 0.18), transparent 55%);
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+
+      .logo-wrap {
+        text-align: center;
+      }
+
+      .site-title {
+        margin: 0;
+        font-size: clamp(2.1rem, 3vw, 2.6rem);
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .site-tagline {
+        margin: 12px 0 0;
+        font-size: 1rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .header-ad {
+        background: rgba(15, 13, 18, 0.82);
+        border-radius: var(--radius);
+        border: 1px dashed var(--border);
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 120px;
+      }
+
+      .header-ad .widget > * {
+        width: 100%;
+      }
+
+      .site-nav {
+        margin-top: 28px;
+        background: rgba(23, 21, 26, 0.78);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 12;
+      }
+
+      .site-nav .nav-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 18px 24px;
+      }
+
+      .site-nav .nav-toggle span {
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--text-primary);
+        margin: 6px 0;
+        transition: transform var(--transition);
+      }
+
+      .nav-menu {
+        margin: 0;
+        padding: 0 20px;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 6px;
+      }
+
+      .nav-menu li a {
+        display: block;
+        padding: 16px 18px;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        border-radius: calc(var(--radius) - 6px);
+        transition: background var(--transition), color var(--transition), transform var(--transition);
+      }
+
+      .nav-menu li a:hover,
+      .nav-menu li a:focus {
+        color: var(--text-primary);
+        background: var(--accent-soft);
+        transform: translateY(-2px);
+      }
+
+      .hero-section {
+        margin: 32px 0 44px;
+        background: linear-gradient(160deg, rgba(216, 169, 74, 0.08), rgba(12, 11, 15, 0.9));
+        border-radius: calc(var(--radius) + 6px);
+        border: 1px solid var(--border);
+        padding: 28px;
+        min-height: 150px;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 3fr minmax(260px, 1fr);
+        gap: 32px;
+        align-items: start;
+      }
+
+      .content-area {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .post-card {
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(216, 169, 74, 0.16);
+        box-shadow: var(--shadow);
+        padding: 28px;
+        display: grid;
+        gap: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .post-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(216, 169, 74, 0.12), transparent 55%);
+        opacity: 0;
+        transition: opacity var(--transition);
+        pointer-events: none;
+      }
+
+      .post-card:hover::before {
+        opacity: 1;
+      }
+
+      .post-header {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .post-title {
+        margin: 0;
+        font-size: clamp(1.45rem, 2.3vw, 1.8rem);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .post-meta a {
+        color: var(--accent);
+      }
+
+      .post-snippet {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .post-snippet .post-thumb {
+        display: block;
+        overflow: hidden;
+        border-radius: calc(var(--radius) - 4px);
+      }
+
+      .post-snippet .post-thumb img {
+        width: 100%;
+        height: auto;
+        transition: transform var(--transition);
+      }
+
+      .post-snippet .post-thumb:hover img {
+        transform: scale(1.04);
+      }
+
+      .post-snippet p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 1.03rem;
+      }
+
+      .post-footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .post-footer .read-more {
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border-bottom: 1px solid transparent;
+      }
+
+      .post-footer .read-more:hover {
+        border-color: var(--accent);
+      }
+
+      .post-body {
+        color: var(--text-secondary);
+      }
+
+      .post-body img {
+        margin: 24px 0;
+      }
+
+      .inline-ad-slot,
+      .below-posts-ad {
+        background: rgba(17, 15, 20, 0.82);
+        border: 1px dashed var(--border);
+        border-radius: var(--radius);
+        padding: 22px;
+        text-align: center;
+      }
+
+      .inline-ad-slot {
+        margin: 22px 0;
+      }
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .sidebar .widget {
+        background: rgba(20, 18, 24, 0.92);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .sidebar .widget-title {
+        margin: 0 0 16px;
+        font-size: 1.1rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .blog-pagination {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .blog-pagination a {
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 16px 18px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: rgba(23, 21, 26, 0.82);
+        color: var(--text-secondary);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: background var(--transition), transform var(--transition);
+      }
+
+      .blog-pagination a:hover {
+        background: var(--accent-soft);
+        color: var(--text-primary);
+        transform: translateY(-2px);
+      }
+
+      .site-footer {
+        margin-top: 64px;
+        background: rgba(13, 12, 16, 0.9);
+        border-top: 1px solid var(--border);
+        padding: 48px 24px 32px;
+        border-radius: calc(var(--radius) + 4px);
+        display: grid;
+        gap: 24px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 16px;
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer-social a {
+        padding: 10px 14px;
+        border-radius: calc(var(--radius) - 8px);
+        border: 1px solid transparent;
+      }
+
+      .footer-social a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .footer-meta {
+        color: var(--text-secondary);
+        font-size: 0.88rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      #back-to-top {
+        position: fixed;
+        inset-inline-end: 24px;
+        inset-block-end: 24px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: rgba(13, 12, 16, 0.9);
+        color: var(--accent);
+        font-size: 1.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition), transform var(--transition);
+        z-index: 25;
+      }
+
+      #back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(-4px);
+      }
+
+      .comments {
+        margin-top: 42px;
+        background: rgba(21, 19, 24, 0.9);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 28px;
+      }
+
+      .comments-title {
+        margin: 0 0 24px;
+        color: var(--accent);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .comment {
+        border-top: 1px solid rgba(216, 169, 74, 0.08);
+        padding: 18px 0;
+      }
+
+      .comment:first-of-type {
+        border-top: none;
+      }
+
+      .comment-author {
+        font-weight: 600;
+        letter-spacing: 0.05em;
+      }
+
+      .comment-content {
+        color: var(--text-secondary);
+        margin: 12px 0;
+      }
+
+      .comment-date {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.45);
+        letter-spacing: 0.05em;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+
+      .share-buttons a {
+        padding: 10px 16px;
+        border-radius: calc(var(--radius) - 8px);
+        border: 1px solid rgba(216, 169, 74, 0.2);
+        color: var(--text-secondary);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: background var(--transition), color var(--transition), border var(--transition);
+      }
+
+      .share-buttons a:hover {
+        background: var(--accent-soft);
+        color: var(--text-primary);
+        border-color: var(--accent);
+      }
+
+      .post-labels {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        letter-spacing: 0.05em;
+      }
+
+      .post-labels a {
+        color: var(--accent);
+      }
+
+      .no-comments {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 1024px) {
+        .top-header {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .header-ad {
+          order: 2;
+        }
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+        .blog-pagination {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .site-wrapper {
+          padding: 18px 16px 64px;
+        }
+        .site-nav {
+          position: relative;
+        }
+        .site-nav .nav-toggle {
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          border-bottom: 1px solid var(--border);
+        }
+        .nav-menu {
+          grid-template-columns: 1fr;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height var(--transition);
+        }
+        .nav-menu.is-open {
+          max-height: 520px;
+        }
+        .post-card {
+          padding: 24px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .site-title {
+          font-size: 1.8rem;
+        }
+        .site-tagline {
+          letter-spacing: 0.12em;
+          font-size: 0.88rem;
+        }
+        .post-meta {
+          gap: 10px;
+          font-size: 0.8rem;
+        }
+      }
+    ]]></b:skin>
+  </head>
+  <body expr:class='"page-" + data:blog.pageType'>
+    <div class='site-wrapper'>
+      <header class='top-header' role='banner'>
+        <div class='logo-wrap'>
+          <h1 class='site-title'><data:blog.title/></h1>
+          <p class='site-tagline'>Iraqi knowledge in a modern vision.</p>
+        </div>
+        <div class='header-ad'>
+          <b:section class='header-ads-section' id='header-ads' maxwidgets='1' name='Header Ad' showaddelement='yes'>
+            <b:widget id='AdSenseHeader' locked='false' title='Header Ad' type='AdSense'/>
+          </b:section>
+        </div>
+      </header>
+      <nav class='site-nav' role='navigation'>
+        <button aria-controls='primary-menu' aria-expanded='false' class='nav-toggle' type='button'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class='nav-menu' id='primary-menu'>
+          <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Iraq%20News"'>Iraq News</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Technology"'>Technology</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Games"'>Games</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Literature"'>Literature</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Cooking"'>Cooking</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Design"'>Design</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Health%20%26%20Science"'>Health &amp; Science</a></li>
+          <li><a expr:href='data:blog.homepageUrl + "search/label/Culture%20%26%20History"'>Culture &amp; History</a></li>
+        </ul>
+      </nav>
+      <b:section class='hero-section' id='hero' name='Featured Area' showaddelement='yes'/>
+      <main class='main-content' role='main'>
+        <div class='content-area'>
+          <b:section class='main-posts' id='main' maxwidgets='1' name='Main Posts' showaddelement='yes'>
+            <b:widget id='Blog1' locked='false' title='Posts' type='Blog'>
+              <b:includable id='main' var='top'>
+                <div class='blog-posts'>
+                  <b:include data='top' name='posts'/>
+                </div>
+                <b:include data='top' name='pager'/>
+              </b:includable>
+              <b:includable id='posts' var='top'>
+                <b:loop index='i' values='top.posts' var='post'>
+                  <b:include data='post' name='post'/>
+                  <b:if cond='data:blog.pageType != "item" and i == 0'>
+                    <div class='inline-ad-slot'>
+                      <b:section class='inline-ad-section' id='inline-ad-slot' maxwidgets='1' name='Inline Ad' showaddelement='yes'>
+                        <b:widget id='AdSenseInline' locked='false' title='Inline Ad' type='AdSense'/>
+                      </b:section>
+                    </div>
+                  </b:if>
+                </b:loop>
+                <div class='below-posts-ad'>
+                  <b:section class='below-posts-section' id='below-posts-ad' maxwidgets='1' name='Below Posts Ad' showaddelement='yes'>
+                    <b:widget id='AdSenseBelowPosts' locked='false' title='Below Posts Ad' type='AdSense'/>
+                  </b:section>
+                </div>
+              </b:includable>
+              <b:includable id='post' var='post'>
+                <article class='post-card' expr:class='data:blog.pageType == "item" ? "post-card single-view" : "post-card list-view"'>
+                  <header class='post-header'>
+                    <h2 class='post-title'>
+                      <a expr:href='data:post.url'><data:post.title/></a>
+                    </h2>
+                    <div class='post-meta'>
+                      <span class='meta-date'><data:post.timestamp/></span>
+                      <b:if cond='data:post.labels'>
+                        <span class='meta-labels'>
+                          <b:loop values='data:post.labels' var='label'>
+                            <a expr:href='label.url'><data:label.name/></a><b:if cond='data:label.isLast == false'>، </b:if>
+                          </b:loop>
+                        </span>
+                      </b:if>
+                      <b:if cond='data:post.author'>
+                        <span class='meta-author'><data:post.author/></span>
+                      </b:if>
+                    </div>
+                  </header>
+                  <b:if cond='data:blog.pageType == "item"'>
+                    <div class='post-body'>
+                      <data:post.body/>
+                    </div>
+                    <footer class='post-footer'>
+                      <b:include data='post' name='shareButtons'/>
+                      <b:include data='post' name='postLabels'/>
+                    </footer>
+                    <b:include data='post' name='comments'/>
+                  <b:else/>
+                    <div class='post-snippet'>
+                      <b:if cond='data:post.thumbnailUrl'>
+                        <a class='post-thumb' expr:href='data:post.url'>
+                          <img expr:alt='data:post.title' expr:src='data:post.thumbnailUrl'/>
+                        </a>
+                      </b:if>
+                      <p>
+                        <b:if cond='data:post.snippet'><data:post.snippet/><b:else/><data:post.body/></b:if>
+                      </p>
+                    </div>
+                    <footer class='post-footer'>
+                      <a class='read-more' expr:href='data:post.url' rel='bookmark'>Continue reading</a>
+                      <b:include data='post' name='shareButtons'/>
+                    </footer>
+                  </b:if>
+                  <b:include data='post' name='postQuickEdit'/>
+                </article>
+              </b:includable>
+              <b:includable id='shareButtons' var='post'>
+                <div class='share-buttons'>
+                  <a expr:href='"https://twitter.com/intent/tweet?text=" + encodeURIComponent(data:post.title) + "&amp;url=" + encodeURIComponent(data:post.url)' rel='noopener' target='_blank'>Tweet</a>
+                  <a expr:href='"https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(data:post.url)' rel='noopener' target='_blank'>Share</a>
+                  <a expr:href='"https://www.linkedin.com/shareArticle?mini=true&amp;url=" + encodeURIComponent(data:post.url) + "&amp;title=" + encodeURIComponent(data:post.title)' rel='noopener' target='_blank'>LinkedIn</a>
+                </div>
+              </b:includable>
+              <b:includable id='postLabels' var='post'>
+                <b:if cond='data:post.labels'>
+                  <div class='post-labels'>
+                    <strong>Filed under:</strong>
+                    <b:loop values='data:post.labels' var='label'>
+                      <a expr:href='label.url'><data:label.name/></a><b:if cond='data:label.isLast == false'>، </b:if>
+                    </b:loop>
+                  </div>
+                </b:if>
+              </b:includable>
+              <b:includable id='comments' var='post'>
+                <section class='comments' expr:id='"comments-" + data:post.id'>
+                    <h3 class='comments-title'>
+                      <data:post.commentLabel/>
+                    </h3>
+                  <div class='comment-list'>
+                    <b:include data='post' name='commentList'/>
+                    <b:include data='post' name='comment-form'/>
+                  </div>
+                </section>
+              </b:includable>
+              <b:includable id='comment-form' var='post'>
+                <div class='comment-form'>
+                  <b:include data='post' name='blogCommentForm'/>
+                </div>
+              </b:includable>
+              <b:includable id='commentList' var='post'>
+                <b:if cond='data:post.numberOfComments > 0'>
+                  <b:loop values='data:post.comments' var='comment'>
+                    <div class='comment' expr:id='data:comment.id'>
+                      <div class='comment-author'><data:comment.author/></div>
+                      <div class='comment-content'><data:comment.body/></div>
+                      <time class='comment-date'><data:comment.timestamp/></time>
+                    </div>
+                  </b:loop>
+                <b:else/>
+                  <p class='no-comments'>Be the first to comment.</p>
+                </b:if>
+              </b:includable>
+              <b:includable id='pager'>
+                <nav class='blog-pagination' role='navigation'>
+                  <b:if cond='data:newerPageUrl'>
+                    <a class='newer-posts' expr:href='data:newerPageUrl' rel='prev'>Newer Posts</a>
+                  </b:if>
+                  <b:if cond='data:olderPageUrl'>
+                    <a class='older-posts' expr:href='data:olderPageUrl' rel='next'>Older Posts</a>
+                  </b:if>
+                </nav>
+              </b:includable>
+            </b:widget>
+          </b:section>
+        </div>
+        <aside class='sidebar' role='complementary'>
+          <div class='sidebar-ad'>
+            <b:section class='sidebar-ad-section' id='sidebar-ad' maxwidgets='1' name='Sidebar Ad' showaddelement='yes'>
+              <b:widget id='AdSenseSidebar' locked='false' title='Sidebar Ad' type='AdSense'/>
+            </b:section>
+          </div>
+          <b:section class='sidebar-widgets' id='sidebar' name='Sidebar Widgets' showaddelement='yes'/>
+        </aside>
+      </main>
+      <footer class='site-footer' role='contentinfo'>
+        <div class='footer-social'>
+          <a href='https://www.instagram.com/os_iraq2' rel='noopener' target='_blank'>Instagram</a>
+        </div>
+        <div class='footer-meta'>
+          <span>&copy; <data:blog.copyrightYear/> <data:blog.title/>. All rights reserved.</span>
+        </div>
+        <div class='footer-meta'>
+          <span>Crafted for Sumer IQ - Iraqi knowledge in a modern vision.</span>
+        </div>
+      </footer>
+    </div>
+    <button aria-label='Back to top' id='back-to-top' title='Back to top'>
+      &#9650;
+    </button>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var navToggle = document.querySelector(".nav-toggle");
+        var navMenu = document.querySelector(".nav-menu");
+        var backToTop = document.getElementById("back-to-top");
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", function () {
+            var expanded = this.getAttribute("aria-expanded") === "true";
+            this.setAttribute("aria-expanded", !expanded);
+            navMenu.classList.toggle("is-open");
+          });
+        }
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 450) {
+            backToTop.classList.add("visible");
+          } else {
+            backToTop.classList.remove("visible");
+          }
+        });
+
+        backToTop.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+    <b:include data='blog' name='google-analytics'/>
+  </body>
+</html>
